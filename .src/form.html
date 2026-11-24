@@ -1,0 +1,118 @@
+
+  <form class="trip-form" id="trip-form" novalidate>
+    <h3>Plan Your Trip</h3>
+    <p class="form-intro">Please fill out our custom trip planner and one of our professionals will contact you with a proposal.</p>
+    <div class="step-progress"><span></span></div>
+
+    <fieldset>
+      <legend>1. What kind of trip are you planning?</legend>
+      <div class="date-mode">
+        <label class="form-check-inline"><input class="form-check-input" type="radio" name="trip_length" value="single" checked> A single-day adventure</label>
+        <label class="form-check-inline"><input class="form-check-input" type="radio" name="trip_length" value="multi"> A multi-day trip</label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>2. When would you like to travel?</legend>
+      <div class="date-mode">
+        <label class="form-check-inline"><input class="form-check-input" type="radio" name="date_mode" value="exact" checked> I have exact dates</label>
+        <label class="form-check-inline"><input class="form-check-input" type="radio" name="date_mode" value="flexible"> My dates are flexible</label>
+      </div>
+      <div class="date-panel" data-mode="exact">
+        <div class="row g-3">
+          <div class="col-sm-6"><label class="form-label" for="start_date"><span class="multi-only">Start date</span><span class="single-only">Date</span></label><input class="form-control" type="date" id="start_date" name="start_date"></div>
+          <div class="col-sm-6 multi-only"><label class="form-label" for="end_date">End date</label><input class="form-control" type="date" id="end_date" name="end_date"></div>
+        </div>
+      </div>
+      <div class="date-panel" data-mode="flexible" hidden>
+        <div class="row g-3">
+          <div class="col-sm-6 multi-only"><label class="form-label" for="num_days">Approximate number of days</label><input class="form-control" type="number" id="num_days" name="num_days" min="1" max="30" placeholder="e.g. 5"></div>
+          <div class="col-sm-6"><label class="form-label" for="month">Month you're interested in</label>
+            <select class="form-select" id="month" name="month">
+              <option value="">Select a month</option>
+              <option>January</option><option>February</option><option>March</option><option>April</option><option>May</option><option>June</option>
+              <option>July</option><option>August</option><option>September</option><option>October</option><option>November</option><option>December</option>
+            </select></div>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>3. Where are you interested in visiting? <span class="hint">Select all that apply</span></legend>
+      <div class="place-group">
+        <h4>National Parks</h4>
+        <label><input class="form-check-input" type="checkbox" name="places[]" value="Banff National Park"> Banff National Park</label>
+        <label><input class="form-check-input" type="checkbox" name="places[]" value="Jasper National Park"> Jasper National Park</label>
+        <label><input class="form-check-input" type="checkbox" name="places[]" value="Yoho National Park"> Yoho National Park</label>
+        <label><input class="form-check-input" type="checkbox" name="places[]" value="Kootenay National Park"> Kootenay National Park</label>
+        <label><input class="form-check-input" type="checkbox" name="places[]" value="Waterton National Park"> Waterton National Park</label>
+        <label><input class="form-check-input" type="checkbox" name="places[]" value="Glacier/Revelstoke National Parks"> Glacier/Revelstoke National Parks</label>
+      </div>
+      <div class="place-group">
+        <h4>Provincial Parks &amp; Areas</h4>
+        <label><input class="form-check-input" type="checkbox" name="places[]" value="Kananaskis Country"> Kananaskis Country</label>
+        <label><input class="form-check-input" type="checkbox" name="places[]" value="Mt. Assiniboine Provincial Park"> Mt. Assiniboine Provincial Park</label>
+        <label><input class="form-check-input" type="checkbox" name="places[]" value="Manning Provincial Park"> Manning Provincial Park</label>
+        <label><input class="form-check-input" type="checkbox" name="places[]" value="Kokanee Glacier Provincial Park"> Kokanee Glacier Provincial Park</label>
+        <label><input class="form-check-input" type="checkbox" name="places[]" value="Badlands of Alberta"> Badlands of Alberta</label>
+        <label><input class="form-check-input" type="checkbox" name="places[]" value="Southern Alberta &amp; BC routes"> Tour &amp; hiking routes across southern Alberta and BC</label>
+      </div>
+      <div class="place-group">
+        <h4>Cities</h4>
+        <label><input class="form-check-input" type="checkbox" name="places[]" value="Calgary"> Calgary</label>
+        <label><input class="form-check-input" type="checkbox" name="places[]" value="Edmonton"> Edmonton</label>
+        <label><input class="form-check-input" type="checkbox" name="places[]" value="Vancouver"> Vancouver</label>
+        <label><input class="form-check-input" type="checkbox" name="places[]" value="Victoria"> Victoria</label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>4. What activities are you interested in? <span class="hint">Select all that apply</span></legend>
+      <div class="place-group">
+        <h4>Summer</h4>
+        <label><input class="form-check-input" type="checkbox" name="activities[]" value="Guided day hiking"> Guided day hiking</label>
+        <label><input class="form-check-input" type="checkbox" name="activities[]" value="Multi-day hiking trips"> Multi-day hiking trips</label>
+        <label><input class="form-check-input" type="checkbox" name="activities[]" value="Heli-hiking"> Heli-hiking</label>
+        <label><input class="form-check-input" type="checkbox" name="activities[]" value="ATV-assisted hiking"> ATV-assisted hiking</label>
+        <label><input class="form-check-input" type="checkbox" name="activities[]" value="Guided e-bike tours"> Guided e-bike tours</label>
+        <label><input class="form-check-input" type="checkbox" name="activities[]" value="eBike &amp; hike tours"> eBike &amp; hike tours</label>
+        <label><input class="form-check-input" type="checkbox" name="activities[]" value="Backcountry hiking (Skoki, Lake O'Hara)"> Backcountry hiking (Skoki, Lake O'Hara)</label>
+      </div>
+      <div class="place-group">
+        <h4>Winter</h4>
+        <label><input class="form-check-input" type="checkbox" name="activities[]" value="Canyon icewalks (Johnston, Marble, Grotto)"> Canyon icewalks (Johnston, Marble, Grotto)</label>
+        <label><input class="form-check-input" type="checkbox" name="activities[]" value="Snowshoeing"> Snowshoeing</label>
+        <label><input class="form-check-input" type="checkbox" name="activities[]" value="Snowcat snowshoe charter"> Snowcat snowshoe charter</label>
+        <label><input class="form-check-input" type="checkbox" name="activities[]" value="Lake Louise Winterland Tour"> Lake Louise Winterland Tour</label>
+      </div>
+      <div class="place-group">
+        <h4>Year-round</h4>
+        <label><input class="form-check-input" type="checkbox" name="activities[]" value="Private sightseeing by van/SUV"> Private sightseeing by van/SUV</label>
+        <label><input class="form-check-input" type="checkbox" name="activities[]" value="Gondolas &amp; popular attractions"> Gondolas &amp; popular attractions</label>
+        <label><input class="form-check-input" type="checkbox" name="activities[]" value="Culinary experiences"> Culinary experiences</label>
+        <label><input class="form-check-input" type="checkbox" name="activities[]" value="Teambuilding activities"> Teambuilding activities</label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>5. Your details</legend>
+      <div class="row g-3">
+        <div class="col-md-4"><label class="form-label" for="name">Name</label><input class="form-control" type="text" id="name" name="name" autocomplete="name" required></div>
+        <div class="col-md-4"><label class="form-label" for="email">Email</label><input class="form-control" type="email" id="email" name="email" autocomplete="email" required></div>
+        <div class="col-md-4"><label class="form-label" for="phone">Phone</label><input class="form-control" type="tel" id="phone" name="phone" autocomplete="tel"></div>
+        <div class="col-md-4"><label class="form-label" for="language">Preferred guide language</label>
+          <select class="form-select" id="language" name="language">
+            <option>English</option><option>French</option><option>German</option><option>Spanish</option>
+          </select></div>
+        <div class="col-12"><label class="form-label" for="questions">Questions or special requests</label><textarea class="form-control" id="questions" name="questions" rows="4" placeholder="Group size, ages, fitness level, accessibility needs, anything else we should know..."></textarea></div>
+      </div>
+    </fieldset>
+
+    <div class="step-nav">
+      <button class="btn btn-back" type="button" data-step="back">&larr; Back</button>
+      <span class="step-count"></span>
+      <button class="btn btn-primary" type="button" data-step="next">Next &rarr;</button>
+      <button class="btn btn-primary" type="submit">Request a Proposal</button>
+    </div>
+    <p class="form-thanks" hidden>Thanks! Our trip designers will be in touch shortly.</p>
+  </form>
