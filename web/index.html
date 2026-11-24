@@ -546,7 +546,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </fieldset>
 
     <fieldset>
-      <legend>3. Where are you interested in visiting? <span class="hint">Select all that apply</span></legend>
+      <legend>3. Approximately how many people are in your group?</legend>
+      <div class="row g-3">
+        <div class="col-sm-6"><label class="form-label" for="group_size">Number of people</label><input class="form-control" type="number" id="group_size" name="group_size" min="1" max="200" placeholder="e.g. 6"></div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>4. Where are you interested in visiting? <span class="hint">Select all that apply</span></legend>
       <div class="place-group">
         <h4>National Parks</h4>
         <label><input class="form-check-input" type="checkbox" name="places[]" value="Banff National Park"> Banff National Park</label>
@@ -575,7 +582,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </fieldset>
 
     <fieldset>
-      <legend>4. What activities are you interested in? <span class="hint">Select all that apply</span></legend>
+      <legend>5. What activities are you interested in? <span class="hint">Select all that apply</span></legend>
       <div class="place-group">
         <h4>Summer</h4>
         <label><input class="form-check-input" type="checkbox" name="activities[]" value="Guided day hiking"> Guided day hiking</label>
@@ -603,7 +610,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </fieldset>
 
     <fieldset>
-      <legend>5. Your details</legend>
+      <legend>6. Your details</legend>
       <div class="row g-3">
         <div class="col-md-4"><label class="form-label" for="name">Name</label><input class="form-control" type="text" id="name" name="name" autocomplete="name" required></div>
         <div class="col-md-4"><label class="form-label" for="email">Email</label><input class="form-control" type="email" id="email" name="email" autocomplete="email" required></div>
