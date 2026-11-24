@@ -148,5 +148,13 @@ h = h.replace("</body>", '<script src="custom/season.js"></script>\n</body>', 1)
 
 h = re.sub(r'src="sites/www.whitemountainadventures.com/files/js/js_[^"]*"', 'src="sites/www.whitemountainadventures.com/files/js/site.js"', h)
 h = h.replace("<h1>Custom and Private Tours </h1>", "<h1>Private Tours &amp; Custom Trip Planning</h1>")
+
+# Turn off navbar menu links (keep tel: and dropdown toggles working).
+def _kill(m):
+    tag = m.group(0)
+    if 'href="tel:' in tag: return tag
+    return re.sub(r'href="[^"]*"', 'href="#" data-disabled-link', tag, count=1)
+a0 = h.index('navbar-nav'); a1 = h.index('</header>')
+h = h[:a0] + re.sub(r'<a [^>]*class="[^"]*(nav-link|dropdown-item)[^"]*"[^>]*>', _kill, h[a0:a1]) + h[a1:]
 (web / "index.html").write_text(h)
 print("ok", len(items), "summer items")

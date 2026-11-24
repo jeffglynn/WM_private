@@ -141,3 +141,4 @@ body.is-winter .swap > .summer-only { opacity: 0; visibility: hidden; pointer-ev
 .where-box li:before { content: "\f3c5"; font-family: "Font Awesome 6 Free"; font-weight: 900; position: absolute; left: 0; top: .7rem; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: #5e8038; color: #fff; font-size: .9rem; display: flex; align-items: center; justify-content: center; }
 @media (max-width: 991px) { .where-box ul { columns: 2; } }
 @media (max-width: 575px) { .where-box ul { columns: 1; } }
+a[data-disabled-link]:not(.dropdown-toggle) { cursor: default; }

@@ -69,3 +69,8 @@
     form.querySelector(".form-thanks").hidden = false;
   });
 })();
+
+// Navbar menu links are turned off.
+document.querySelectorAll("a[data-disabled-link]").forEach(a => a.addEventListener("click", e => {
+  if (!a.matches('[data-bs-toggle="dropdown"]')) e.preventDefault();
+}));
