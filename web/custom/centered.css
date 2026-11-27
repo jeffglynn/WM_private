@@ -89,3 +89,8 @@
 .custom-planning .trip-form { box-sizing: border-box; width: 100%; max-width: 80rem; margin-left: auto; margin-right: auto; padding: 3rem; }
 .custom-planning .trip-form { margin-top: 3rem; }
 .page-node-type-private .ready-tours > h2 { margin-top: 0; }
+
+/* Desktop: reserve two title lines so card body text lines up */
+@media (min-width: 992px) {
+  .private-thumbs .thumb-title { min-height: 3em; }
+}
