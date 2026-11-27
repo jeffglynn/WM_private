@@ -1,22 +1,26 @@
 // Season switch: cross-fades the summer/winter carousels.
 (function () {
-  const sw = document.querySelector(".season");
+  const sws = document.querySelectorAll(".season");
   const car = document.querySelector(".season-carousel");
-  if (!sw || !car) return;
+  if (!sws.length || !car) return;
   let season = "summer";
   function set(s) {
     season = s;
     const w = s === "winter";
-    sw.classList.toggle("winter", w);
-    sw.querySelectorAll(".lb").forEach(b => b.classList.toggle("on", b.dataset.season === s));
-    sw.querySelector(".switch").setAttribute("aria-checked", w);
+    sws.forEach(sw => {
+      sw.classList.toggle("winter", w);
+      sw.querySelectorAll(".lb").forEach(b => b.classList.toggle("on", b.dataset.season === s));
+      sw.querySelector(".switch").setAttribute("aria-checked", w);
+    });
     car.classList.toggle("is-winter", w);
     document.body.classList.toggle("is-winter", w);
     car.querySelector(".winter-carousel").setAttribute("aria-hidden", !w);
     car.querySelector(".summer-carousel").setAttribute("aria-hidden", w);
   }
-  sw.querySelector(".switch").addEventListener("click", () => set(season === "summer" ? "winter" : "summer"));
-  sw.querySelectorAll(".lb").forEach(b => b.addEventListener("click", () => set(b.dataset.season)));
+  sws.forEach(sw => {
+    sw.querySelector(".switch").addEventListener("click", () => set(season === "summer" ? "winter" : "summer"));
+    sw.querySelectorAll(".lb").forEach(b => b.addEventListener("click", () => set(b.dataset.season)));
+  });
 })();
 
 // Trip planning form: exact vs flexible dates; demo submit (no backend).
