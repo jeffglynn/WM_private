@@ -1,0 +1,182 @@
+/* Additions on top of the site's own CSS. Sizes in rem follow the site's html font-size. */
+
+/* Carousel cross-fade */
+.season-carousel { position: relative; }
+.season-carousel > .summer-carousel,
+.season-carousel > .winter-carousel { transition: opacity .8s ease; }
+.season-carousel > .winter-carousel { position: absolute; top: 0; left: 0; right: 0; opacity: 0; pointer-events: none; z-index: 1; }
+.season-carousel.is-winter > .winter-carousel { opacity: 1; pointer-events: auto; }
+.season-carousel.is-winter > .summer-carousel { opacity: 0; pointer-events: none; }
+
+/* Season switch (next to the H1) */
+.season { display: flex; align-items: center; gap: 12px; font-size: 1.25rem; text-transform: uppercase; letter-spacing: 1px; user-select: none; }
+.season .lb { color: #888; cursor: pointer; }
+.season .lb.on { color: #00151c; font-weight: 700; }
+.season .switch { position: relative; width: 64px; height: 32px; border-radius: 32px; border: 0; padding: 0; cursor: pointer; background: #5e8038; }
+.season .knob { position: absolute; top: 3px; left: 3px; width: 26px; height: 26px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.3); display: flex; align-items: center; justify-content: center; transition: transform .3s; }
+.season.winter .knob { transform: translateX(32px); }
+.season .knob svg { width: 16px; height: 16px; stroke: #5e8038; }
+.season .ico-snow { display: none; }
+.season.winter .ico-sun { display: none; }
+.season.winter .ico-snow { display: block; }
+
+/* Body */
+.private-body { margin-bottom: 5rem; }
+.private-body .intro { max-width: 60rem; }
+
+/* Tour cards: same rules as .home-thumbs .home-thumb in b5subtheme */
+.private-thumbs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.private-thumbs .home-thumb { height: 100%; background-color: rgba(144, 180, 147, .3); border-radius: 10px; overflow: hidden; }
+.private-thumbs a.thumb-link { display: flex; flex-direction: column; height: 100%; color: #00151c; text-decoration: none; }
+.private-thumbs .thumb-img { position: relative; aspect-ratio: 4 / 3; overflow: hidden; }
+.private-thumbs .thumb-img img { width: 100%; height: 100%; object-fit: cover; display: block; margin: 0; }
+.private-thumbs .thumb-img:after { content: "Explore \2192"; font-weight: bold; padding-top: 19px; color: #fff; font-size: 1.5rem; display: flex; justify-content: center; align-items: center; position: absolute; inset: 0; background-color: rgba(0,0,0,.3); opacity: 0; transition: all .25s; }
+.private-thumbs a:hover .thumb-img:after { opacity: 1; }
+.private-thumbs .thumb-text { padding: 20px 14px; text-align: left; display: flex; flex-direction: column; flex-grow: 1; }
+.private-thumbs .thumb-title { font-size: 1.4rem; letter-spacing: .06em; display: block; font-weight: bold; margin-bottom: 20px; }
+.private-thumbs .thumb-duration { margin-top: auto; margin-bottom: 0; }
+.private-thumbs .thumb-diff { text-wrap: nowrap; }
+@media (max-width: 767px) { .private-thumbs { grid-template-columns: 1fr; } }
+
+/* Season cross-fade: both versions share one grid cell, so no layout jump or flash */
+.swap { display: grid; }
+.swap > * { grid-area: 1 / 1; transition: opacity .8s ease, visibility .8s; }
+body:not(.is-winter) .swap > .winter-only,
+body.is-winter .swap > .summer-only { opacity: 0; visibility: hidden; pointer-events: none; }
+.swap > p { margin-bottom: 1rem; }
+
+/* Ready to Book: full-width colour band ($cream from b5subtheme) */
+.ready-tours { position: relative; isolation: isolate; padding: 4rem 0 5rem; margin: 3rem 0 4rem; }
+.ready-tours:before { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 100vw; transform: translateX(-50%); background: #faf7f2; z-index: -1; }
+
+/* Trip planning form */
+.trip-form { background: #faf7f2; border-radius: 10px; padding: 3rem; margin: 4rem 0 2rem; }
+.trip-form h3 { margin-bottom: 1rem; }
+.trip-form .form-intro { margin-bottom: 2.5rem; }
+.trip-form fieldset { margin-bottom: 2.5rem; }
+.trip-form legend { font-size: 1.5rem; font-weight: bold; margin-bottom: 1.2rem; }
+.trip-form .hint { font-size: 1.1rem; font-weight: normal; color: #666; margin-left: .5rem; }
+.trip-form .form-label, .trip-form label { font-size: 1.25rem; }
+.trip-form .form-control, .trip-form .form-select { font-size: 1.25rem; padding: .7rem 1rem; }
+.trip-form .date-mode { display: flex; gap: 2.5rem; margin-bottom: 1.5rem; }
+.trip-form .date-mode label { display: flex; align-items: center; gap: .6rem; cursor: pointer; }
+.trip-form .date-mode .form-check-input { margin: 0; }
+.trip-form .place-group { margin-bottom: 1.5rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(26rem, 1fr)); gap: .6rem 2rem; }
+.trip-form .place-group h4 { grid-column: 1 / -1; font-size: 1.25rem; text-transform: uppercase; letter-spacing: 1px; color: #5e8038; margin: 0 0 .3rem; }
+.trip-form .place-group label { display: flex; align-items: center; gap: .6rem; cursor: pointer; }
+.trip-form .place-group .form-check-input { margin: 0; flex: none; }
+.trip-form .form-check-input:checked { background-color: #5e8038; border-color: #5e8038; }
+.trip-form .btn { background-color: #5e8038; border-color: #5e8038; font-size: 1.4rem; padding: .8rem 2.5rem; }
+.trip-form .form-thanks { margin: 1.5rem 0 0; font-weight: bold; color: #5e8038; }
+.trip-form.is-single .multi-only, .trip-form:not(.is-single) .single-only { display: none; }
+
+/* One question at a time */
+.trip-form fieldset.step { display: none; min-height: 14rem; }
+.trip-form fieldset.step.current { display: block; animation: stepIn .4s ease; }
+@keyframes stepIn { from { opacity: 0; transform: translateX(12px); } to { opacity: 1; transform: none; } }
+.trip-form .step-progress { height: 6px; background: rgba(144,180,147,.35); border-radius: 3px; margin: 0 0 2.5rem; overflow: hidden; }
+.trip-form .step-progress span { display: block; height: 100%; width: 0; background: #5e8038; transition: width .4s ease; }
+.trip-form .step-nav { display: flex; align-items: center; gap: 1.5rem; }
+.trip-form .step-count { flex: 1; text-align: center; font-size: 1.2rem; color: #666; }
+.trip-form .btn-back { background: transparent; border: 1px solid #5e8038; color: #5e8038; font-size: 1.4rem; padding: .8rem 2rem; }
+.trip-form .btn-back:hover { background: rgba(94,128,56,.08); color: #5e8038; }
+.trip-form .btn-back[hidden], .trip-form .btn[hidden] { display: none; }
+.trip-form .step-nav[hidden] { display: none; }
+
+.two-col { columns: 2; column-gap: 4rem; max-width: 90rem; }
+.two-col li { break-inside: avoid; margin-bottom: .4rem; }
+@media (max-width: 767px) { .two-col { columns: 1; } }
+
+.tour-cost { display: flex; flex-wrap: wrap; gap: .5rem 3rem; margin: 0 0 2.5rem; }
+.tour-cost strong { color: #5e8038; }
+
+/* Highlights box redesign */
+.page-node-type-private .highlights-row > .field--name-field-highlights {
+  background: rgba(144, 180, 147, .3);
+  border: 0;
+  border-radius: 10px;
+  padding: 2.5rem 2.5rem 2rem;
+  margin: 0;
+  width: 100%;
+  font-weight: normal;
+  box-shadow: 0 6px 18px rgba(0, 21, 28, .06);
+}
+.page-node-type-private .highlights-row > .field--name-field-highlights .field__label {
+  background: none;
+  color: #00151c !important;
+  font-family: "Marcellus", sans-serif;
+  font-style: normal;
+  font-size: 2rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin: 0 0 1.5rem;
+  padding: 0 0 1rem;
+  width: auto !important;
+  border-bottom: 2px solid #5e8038;
+}
+.page-node-type-private .field--name-field-highlights ul { list-style: none; padding: 0; margin: 0; }
+.page-node-type-private .field--name-field-highlights ul li {
+  position: relative;
+  padding: .55rem 0 .55rem 2.8rem;
+  line-height: 1.4;
+  border-bottom: 1px solid rgba(94, 128, 56, .15);
+}
+.page-node-type-private .field--name-field-highlights ul li:last-child { border-bottom: 0; }
+.page-node-type-private .field--name-field-highlights ul li:before {
+  content: "\f00c";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute; left: 0; top: .7rem;
+  width: 1.8rem; height: 1.8rem; border-radius: 50%;
+  background: #5e8038; color: #fff;
+  font-size: .9rem;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* Where We Go box: same look as Highlights */
+.where-box { background: rgba(144, 180, 147, .3); border-radius: 10px; padding: 2.5rem 2.5rem 2rem; margin: 3rem 0 0; box-shadow: 0 6px 18px rgba(0, 21, 28, .06); }
+.where-box .where-title { font-family: "Marcellus", sans-serif; font-weight: normal; font-size: 2rem; letter-spacing: .08em; text-transform: uppercase; color: #00151c; margin: 0 0 1.5rem; padding: 0 0 1rem; border-bottom: 2px solid #5e8038; }
+.where-box ul { list-style: none; padding: 0; margin: 1.5rem 0 0; columns: 3; column-gap: 3rem; }
+.where-box li { position: relative; padding: .55rem 0 .55rem 2.8rem; line-height: 1.4; break-inside: avoid; }
+.where-box li:before { content: "\f3c5"; font-family: "Font Awesome 6 Free"; font-weight: 900; position: absolute; left: 0; top: .7rem; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: #5e8038; color: #fff; font-size: .9rem; display: flex; align-items: center; justify-content: center; }
+@media (max-width: 991px) { .where-box ul { columns: 2; } }
+@media (max-width: 575px) { .where-box ul { columns: 1; } }
+a[data-disabled-link]:not(.dropdown-toggle) { cursor: default; }
+
+/* Horizontal highlights + carousel below */
+.highlights-row { margin: 2.5rem 0; }
+.page-node-type-private .highlights-row .field--name-field-highlights ul { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 2.5rem; }
+.page-node-type-private .highlights-row .field--name-field-highlights ul li:last-child { border-bottom: 1px solid rgba(94, 128, 56, .15); }
+@media (min-width: 992px) { .page-node-type-private .highlights-row .field--name-field-highlights ul li:nth-child(3n+1):nth-last-child(-n+3), .page-node-type-private .highlights-row .field--name-field-highlights ul li:nth-child(3n+1):nth-last-child(-n+3) ~ li { border-bottom: 0; } }
+@media (max-width: 991px) { .page-node-type-private .highlights-row .field--name-field-highlights ul { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 575px) { .page-node-type-private .highlights-row .field--name-field-highlights ul { grid-template-columns: 1fr; } }
+.carousel-row { margin: 0; }
+.carousel-row + .ready-tours { margin-top: 0; }
+
+/* Jump buttons under season switch */
+html { scroll-behavior: smooth; }
+#ready-tours, #custom-trip-planning { scroll-margin-top: 120px; }
+.page-node-type-private .top { display: grid; grid-template-columns: minmax(0,1fr) 30rem; gap: 4rem; align-items: center; margin: 3rem 0 1rem; }
+.page-node-type-private .top h1 { margin: 0 0 1.5rem; }
+.page-node-type-private .top-main .intro:last-child { margin-bottom: 0; }
+.top-actions { display: flex; flex-direction: column; gap: 1.4rem; padding: 2rem; border: 1px solid rgba(94,128,56,.25); border-radius: 10px; background: #fff; box-shadow: 0 6px 18px rgba(0,21,28,.06); }
+.top-actions .season { justify-content: center; padding-bottom: 1.4rem; border-bottom: 1px solid rgba(94,128,56,.2); }
+.jump-btns { display: flex; flex-direction: column; gap: .8rem; }
+.jump-btns .btn { display: flex; align-items: center; justify-content: center; text-align: center;
+  font-size: 1.3rem; font-weight: 600; letter-spacing: .5px; padding: .8rem 1.4rem; border-radius: 6px;
+  background: #fff !important; color: #5e8038 !important; border: 2px solid #5e8038 !important; text-transform: none;
+  transition: background .2s, color .2s; }
+.jump-btns .btn:hover, .jump-btns .btn:focus { background: #5e8038 !important; color: #fff !important; }
+@media (max-width: 990px) {
+  .page-node-type-private .top { grid-template-columns: 1fr; gap: 2rem; }
+  .top-actions { max-width: 36rem; }
+}
+.jump-btns .btn + .btn { margin-left: 0; }
+.carousel-row .view { margin-bottom: 0; }
+/* Smaller tour cards */
+.private-thumbs { grid-template-columns: repeat(3, minmax(0, 28rem)); gap: 1.5rem; }
+.private-thumbs .thumb-img { aspect-ratio: 3 / 2; }
+.private-thumbs .thumb-text { padding: 14px 12px; font-size: .92em; }
+.private-thumbs .thumb-text p { margin-bottom: .6rem; }
+.private-thumbs .thumb-title { font-size: 1.3rem; margin-bottom: 10px; }
+@media (max-width: 767px) { .private-thumbs { grid-template-columns: minmax(0, 32rem); } }
