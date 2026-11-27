@@ -1,0 +1,87 @@
+/* Centered layout variant (index-centered.html only). Loaded after season.css. */
+
+.page-node-type-private .node__content { text-align: center; }
+
+/* Title + season switch stacked and centered */
+.page-node-type-private .top { display: flex !important; flex-direction: column; align-items: center; justify-content: center; gap: 1.2rem; text-align: center; margin: 3rem 0 2.5rem; }
+.page-node-type-private .top h1 { margin: 0; text-align: center; }
+.page-node-type-private .top h1:after { content: ""; display: block; width: 6rem; height: 3px; background: #5e8038; margin: 1.4rem auto 0; border-radius: 3px; }
+.season { justify-content: center; }
+
+/* Headings */
+.page-node-type-private h2,
+.page-node-type-private h3,
+.page-node-type-private h4 { text-align: center; }
+.page-node-type-private .private-body > h2,
+.page-node-type-private .ready-tours > h2 { margin: 5rem 0 1.2rem; }
+.page-node-type-private .private-body > h2:after,
+.page-node-type-private .ready-tours > h2:after { content: ""; display: block; width: 4rem; height: 3px; background: #5e8038; margin: 1rem auto 0; border-radius: 3px; }
+
+/* Intro text */
+.private-body .intro,
+.ready-tours p,
+.trip-form .form-intro { max-width: 52rem; margin-left: auto; margin-right: auto; text-align: center; }
+
+/* Intro + highlights: single centered column */
+.page-node-type-private .grid { display: block !important; }
+.page-node-type-private .grid .col1,
+.page-node-type-private .grid .col2 { width: 100% !important; max-width: none !important; float: none !important; padding: 0 !important; flex: none !important; }
+.page-node-type-private .grid .col2 { max-width: 62rem !important; margin: 3rem auto 0; }
+
+/* Highlights block: centered, items as chips */
+.page-node-type-private .grid .col2 > .field--name-field-highlights { text-align: center; padding: 2.5rem 2rem 2.2rem; }
+.page-node-type-private .grid .col2 > .field--name-field-highlights .field__label { display: inline-block; text-align: center; margin: 0 auto 1.8rem; padding: 0 1rem 1rem; }
+.page-node-type-private .field--name-field-highlights ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 2.5rem; text-align: left; }
+.page-node-type-private .field--name-field-highlights ul li:nth-last-child(2):nth-child(odd) { border-bottom: 0; }
+
+/* Ready-to-book: price + cards */
+.tour-cost { justify-content: center; }
+.private-thumbs { justify-content: center; }
+.private-thumbs.winter-cards { grid-template-columns: repeat(3, minmax(0, 22rem)); }
+.private-thumbs .thumb-text { text-align: center; align-items: center; }
+
+/* Where We Go: centered, places as chips */
+.where-box { max-width: 75rem; margin: 3rem auto 0; text-align: center; }
+.where-box .where-title { display: inline-block; padding: 0 1rem 1rem; }
+.where-box p { text-align: left; }
+.where-box ul { text-align: left; }
+
+/* Trip form: centered column */
+.trip-form { max-width: 70rem; margin-left: auto; margin-right: auto; text-align: center; }
+.trip-form legend { text-align: center; float: none; width: 100%; }
+.trip-form .hint { display: block; }
+.trip-form .date-mode { justify-content: center; flex-wrap: wrap; gap: 1rem 2.5rem; }
+.trip-form .row { justify-content: center; }
+.trip-form .form-label { display: block; text-align: center; }
+.trip-form .form-control,
+.trip-form .form-select { text-align: center; text-align-last: center; }
+.trip-form textarea.form-control { text-align: left; }
+.trip-form .place-group { display: flex; flex-wrap: wrap; justify-content: center; gap: .7rem; }
+.trip-form .place-group h4 { flex: 0 0 100%; text-align: center; margin-top: .8rem; }
+.trip-form .place-group label { background: rgba(144, 180, 147, .2); border-radius: 999px; padding: .5rem 1.2rem; transition: background .2s; }
+.trip-form .place-group label:hover,
+.trip-form .place-group label:has(input:checked) { background: rgba(144, 180, 147, .5); }
+.trip-form .step-nav { justify-content: center; flex-wrap: wrap; }
+.trip-form .form-thanks { text-align: center; }
+
+@media (max-width: 991px) {
+  .private-thumbs.winter-cards { grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
+}
+
+@media (max-width: 767px) {
+  .page-node-type-private .field--name-field-highlights ul { grid-template-columns: 1fr; }
+  .page-node-type-private .field--name-field-highlights ul li:nth-last-child(2):nth-child(odd) { border-bottom: 1px solid rgba(94, 128, 56, .15); }
+}
+
+/* Custom Trip Planning: full-width dark band */
+.custom-planning { position: relative; isolation: isolate; padding: 4rem 0 5rem; margin: 0; color: #ece4e6; }
+.custom-planning:before { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 100vw; transform: translateX(-50%); background: #3a2f33; z-index: -1; }
+.page-node-type-private .custom-planning > h2 { margin-top: 0; color: #fff; }
+.page-node-type-private .custom-planning > h2:after { background: #a9c48a; }
+.custom-planning > .intro { color: #ece4e6; }
+.custom-planning .where-box { background: rgba(255, 255, 255, .07); box-shadow: none; }
+.custom-planning .where-box .where-title { color: #fff; border-bottom-color: #a9c48a; }
+.custom-planning .where-box p,
+.custom-planning .where-box li { color: #ece4e6; }
+.custom-planning .trip-form { color: #00151c; margin-bottom: 0; box-shadow: 0 10px 30px rgba(0, 0, 0, .25); }
+.ready-tours { margin-bottom: 0; }
