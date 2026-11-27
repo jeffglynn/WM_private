@@ -142,3 +142,7 @@ body.is-winter .swap > .summer-only { opacity: 0; visibility: hidden; pointer-ev
 @media (max-width: 991px) { .where-box ul { columns: 2; } }
 @media (max-width: 575px) { .where-box ul { columns: 1; } }
 a[data-disabled-link]:not(.dropdown-toggle) { cursor: default; }
+/* 4 summer cards in one row */
+.private-thumbs.summer-cards { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.5rem; }
+@media (max-width: 990px) { .private-thumbs.summer-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 767px) { .private-thumbs.summer-cards { grid-template-columns: 1fr; } }

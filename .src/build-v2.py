@@ -68,7 +68,7 @@ def diff(d):
 summer_cards = "\n".join(card.format(**{**c, "diff": diff(c.get("diff"))}) for c in [
     dict(img="ebike-tours-banff-canmore.webp", title="Guided Ebike Tours in Banff and Canmore", tag="See the best of Banff’s natural beauty via active, accessible guided e-bike tours", dur="2 - 4 hours", diff="Easy"),
     dict(img="heli-hiking-canadian-rockies.webp", title="Heli-Hiking in the Canadian Rockies", tag="The Pinnacle of hiking in the Canadian Rockies!", dur="4 hours", diff="Light/Moderately Strenuous"),
-    dict(img="atv-assisted-hiking.webp", title="ATV-Assisted Hiking", tag="Fortress backcountry ridgeline hike.", dur="4 hours", diff="Light/Moderately Strenuous"),
+    dict(img="atv-assisted-hiking.webp", title="ATV-Assisted Hiking", tag="Fortress backcountry ridgeline hike.", dur="4 hours", diff="Light/Moderately Strenuous"),    dict(img="sunshine-meadows.jpg", title="Sunshine Meadows Private Hike", tag="Named the #1 Day Hike in Canada by Lonely Planet.", dur="7 hours", diff="Moderate"),
 ])
 cards = "\n".join(card.format(**{**c, "diff": diff(c.get("diff"))}) for c in [
     dict(img="twilight.jpg", title="Banff Twilight Tour", tag="Evening tour through Banff as the peaks light up at dusk. Fridays and Saturdays.", dur="2.5 hours", diff="Easy"),

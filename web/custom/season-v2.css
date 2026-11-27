@@ -180,3 +180,7 @@ html { scroll-behavior: smooth; }
 .private-thumbs .thumb-text p { margin-bottom: .6rem; }
 .private-thumbs .thumb-title { font-size: 1.3rem; margin-bottom: 10px; }
 @media (max-width: 767px) { .private-thumbs { grid-template-columns: minmax(0, 32rem); } }
+/* 4 summer cards in one row */
+.private-thumbs.summer-cards { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 990px) { .private-thumbs.summer-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 767px) { .private-thumbs.summer-cards { grid-template-columns: minmax(0, 32rem); } }
